@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
+	"github.com/iamc1oud/memrizer/handler"
 	"golang.org/x/net/context"
 	"log"
 	"net/http"
@@ -16,6 +17,10 @@ func main() {
 	log.Println("Starting server")
 
 	router := gin.Default()
+
+	handler.NewHandler(&handler.Config{
+		R: router,
+	})
 
 	router.GET("/api/account", func(context *gin.Context) {
 		context.JSON(http.StatusOK, gin.H{

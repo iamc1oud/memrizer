@@ -1,0 +1,1 @@
+To rebuild docker image:  docker-compose up -d --force-recreate --build
